@@ -35,5 +35,3 @@ var ArticleSchema = new Schema({
 });
 
 mongoose.model('Article', ArticleSchema);
-
-console.dir(mongoose);

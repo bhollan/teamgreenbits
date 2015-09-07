@@ -3,6 +3,7 @@
 // Articles controller
 angular.module('articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
   function ($scope, $stateParams, $location, Authentication, Articles) {
+      console.dir($scope);
     $scope.authentication = Authentication;
 
     // Create new Article
