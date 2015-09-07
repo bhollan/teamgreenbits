@@ -3,13 +3,17 @@
 angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication',
   function ($scope, $state, $http, $location, $window, Authentication) {
     $scope.authentication = Authentication;
+      
+      console.dir($scope);
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
 
     // If user is signed in then redirect back home
+      //this should probably just route to the team members list
     if ($scope.authentication.user) {
       $location.path('/');
+        //$location.path('/articles');
     }
 
     $scope.signup = function (isValid) {
