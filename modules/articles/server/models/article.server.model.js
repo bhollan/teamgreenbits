@@ -28,7 +28,12 @@ var ArticleSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  time: {
+    type: Date
   }
 });
 
 mongoose.model('Article', ArticleSchema);
+
+console.dir(mongoose);
