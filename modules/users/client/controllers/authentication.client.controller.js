@@ -3,8 +3,6 @@
 angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication',
   function ($scope, $state, $http, $location, $window, Authentication) {
     $scope.authentication = Authentication;
-      
-      console.dir($scope);
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -65,5 +63,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
+      
   }
 ]);
