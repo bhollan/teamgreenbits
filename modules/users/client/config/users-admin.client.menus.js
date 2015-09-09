@@ -1,10 +1,10 @@
 'use strict';
 
-// Configuring the Articles module
+// Configuring the User Admin module
 angular.module('users.admin').run(['Menus',
   function (Menus) {
     Menus.addSubMenuItem('topbar', 'admin', {
-      title: 'Manage Users',
+      title: 'View Timezones',
       state: 'admin.users'
     });
   }

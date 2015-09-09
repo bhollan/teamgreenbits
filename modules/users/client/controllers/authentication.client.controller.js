@@ -8,10 +8,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.error = $location.search().err;
 
     // If user is signed in then redirect back home
-      //this should probably just route to the team members list
     if ($scope.authentication.user) {
       $location.path('/');
-        //$location.path('/articles');
     }
 
     $scope.signup = function (isValid) {

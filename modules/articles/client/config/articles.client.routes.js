@@ -15,12 +15,16 @@ angular.module('articles').config(['$stateProvider',
         templateUrl: 'modules/articles/client/views/list-articles.client.view.html'
       })
       .state('articles.create', {
-        url: '/create',
-        templateUrl: 'modules/articles/client/views/create-article.client.view.html',
-        data: {
-          roles: ['user', 'admin']
-        }
+        url: '/profile',
+        templateUrl: 'modules/users/client/views/settings/edit-profile.client.view.html'
       })
+//      .state('articles.create', {
+//        url: '/create',
+//        templateUrl: 'modules/articles/client/views/create-article.client.view.html',
+//        data: {
+//          roles: ['user', 'admin']
+//        }
+//      })
       .state('articles.view', {
         url: '/:articleId',
         templateUrl: 'modules/articles/client/views/view-article.client.view.html'
