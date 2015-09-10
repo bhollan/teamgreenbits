@@ -57,6 +57,14 @@ var UserSchema = new Schema({
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
   },
+  timezoneOffset: {
+    type: Number,
+    default: 0
+  },
+  localeTime:{
+    type: Date,
+    default: Date.now
+  },
   username: {
     type: String,
     unique: 'Username already exists',
