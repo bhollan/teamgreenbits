@@ -34,8 +34,7 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
             else{
                 $scope.timezoneGroups[$scope.timezoneGroups.length] = [].concat($scope.users[kk]);
                 $scope.timezoneList.push( $scope.users[kk].timezoneOffset );
-                $scope.timezoneGroups[$scope.timezoneGroups.length - 1].UTCDelta = 
-                    OffsetStringFormatter( $scope.users[kk].timezoneOffset );
+                $scope.timezoneGroups[$scope.timezoneGroups.length - 1].UTCDelta = OffsetStringFormatter( $scope.users[kk].timezoneOffset );
             }
         }
         console.dir($scope.timezoneList);
