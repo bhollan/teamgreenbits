@@ -34,12 +34,12 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
             else{
                 $scope.timezoneGroups[$scope.timezoneGroups.length] = [].concat($scope.users[kk]);
                 $scope.timezoneList.push( $scope.users[kk].timezoneOffset );
-                $scope.timezoneGroups[$scope.timezoneGroups.length - 1].UTCDelta = OffsetStringFormatter( $scope.users[kk].timezoneOffset );
+                $scope.timezoneGroups[$scope.timezoneGroups.length - 1].UTCDelta = offsetStringFormatter( $scope.users[kk].timezoneOffset );
             }
         }
         console.dir($scope.timezoneList);
         
-        function OffsetStringFormatter (DeltaAsNumber) {
+        function offsetStringFormatter (DeltaAsNumber) {
             var DeltaAsString = "";
             DeltaAsString = DeltaAsNumber >= 0 ? "+" : "-";
             DeltaAsString = DeltaAsString.concat(DeltaAsNumber.toString());
