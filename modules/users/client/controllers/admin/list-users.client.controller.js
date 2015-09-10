@@ -34,17 +34,37 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
             else{
                 $scope.timezoneGroups[$scope.timezoneGroups.length] = [].concat($scope.users[kk]);
                 $scope.timezoneList.push( $scope.users[kk].timezoneOffset );
-                $scope.timezoneGroups[$scope.timezoneGroups.length - 1].UTCDelta = offsetStringFormatter( $scope.users[kk].timezoneOffset );
+                $scope.timezoneGroups[$scope.timezoneGroups.length - 1].UTCDelta = $scope.users[kk].timezoneOffset;
             }
         }
-        console.dir($scope.timezoneList);
         
-        function offsetStringFormatter (DeltaAsNumber) {
-            var DeltaAsString = "";
-            DeltaAsString = DeltaAsNumber >= 0 ? "+" : "-";
-            DeltaAsString = DeltaAsString.concat(DeltaAsNumber.toString());
-            return DeltaAsString;
-        }
+        $scope.timezoneListStrings = $scope.timezoneList.map(function(d){
+            var output = "";
+            output = d >= 0 ? "+" : "-";
+            return output.concat(Math.abs(d).toString());
+        });
+        
+        $scope.$watch($scope.timeFromOffset);
+        
+        $scope.timeFromOffset = function(UTCDelta){
+            var temp = new Date();
+//            var _utc = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),  date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+            var output = new Date(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(), (temp.getUTCHours() + UTCDelta), temp.getUTCMinutes(), temp.getUTCSeconds());
+            return output;
+        };
+        
     };
   }
 ]);
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

@@ -11,9 +11,9 @@
 -->
     </div>
   </div>
-    <h1 ng-repeat="timezone in timezoneGroups" >
-      <div class="list-group">GMT{{timezone[0].timezoneOffset}}
-          <span class="pull-right">(-----Local time:{{timezone.UTCDelta}}-----)</span>
+    <h1 ng-repeat="timezone in timezoneGroups track by $index" >
+      <div class="list-group">GMT{{timezoneListStrings[$index]}}
+          <span class="pull-right">( <span my-current-time="format">{{timeFromOffset(timezoneList[$index]) | date : 'mediumTime'}}</span> right now <span></span>)</span>
         <a ng-repeat="user in timezone" ui-sref="admin.user({userId: user._id})" class="list-group-item">
           <img ng-src="{{user.profileImageURL}}" alt="{{user.displayName}}" class="pull-left timezone-profile-image" />
           <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
@@ -22,3 +22,5 @@
         </a>
       </div>
     </h1>
+<!--<span class="pull-right">( {{timeFromOffset(timezoneList[$index])}} right now )</span>-->
+<!--    {{timeFromOffset(timezoneList[$index]) | date : 'mediumTime'}}-->
