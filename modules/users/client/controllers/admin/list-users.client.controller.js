@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users.admin').controller('UserListController', ['$scope', '$filter', 'Admin',
-  function ($scope, $filter, Admin) {
+angular.module('users.admin').controller('UserListController', ['$scope', '$filter', 'Admin', '$state', '$interval',
+  function ($scope, $filter, Admin, $state, $interval) {
     Admin.query(function (data) {
       $scope.users = data;
       $scope.buildPager();
@@ -19,6 +19,14 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
       });
       $scope.timezoneGrouper();
     };
+      
+      //reload route periodically to check for updates
+    $scope.autoRefresh = function () {
+        $state.reload();
+    };
+    var reloader = $interval  (function(){
+        $scope.autoRefresh();
+    }, 10000);
       
       //takes in pre-searched array of users
       //sorts by user.timezoneOffset
@@ -48,7 +56,6 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
         
         $scope.timeFromOffset = function(UTCDelta){
             var temp = new Date();
-//            var _utc = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),  date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
             var output = new Date(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(), (temp.getUTCHours() + UTCDelta), temp.getUTCMinutes(), temp.getUTCSeconds());
             return output;
         };

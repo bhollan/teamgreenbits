@@ -30,6 +30,14 @@ var validateLocalStrategyEmail = function (email) {
 };
 
 /**
+*  Validation function for timezoneOffset
+*/
+var validateLocalStrategyTimezone = function (timezoneOffset){
+    // ( timezone not between +/-12 && timezone not X.0 or X.5)
+  return !((Math.floor(Math.abs(timezoneOffset)/12.4)) && ((timezoneOffset*2)%1));
+};
+
+/**
  * User Schema
  */
 var UserSchema = new Schema({
@@ -59,7 +67,8 @@ var UserSchema = new Schema({
   },
   timezoneOffset: {
     type: Number,
-    default: 0
+    default: 0,
+    validate:[validateLocalStrategyTimezone, 'Timezone must be between +12 and -12 and either X.0 or X.5']
   },
   username: {
     type: String,
