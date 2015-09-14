@@ -8,9 +8,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.error = $location.search().err;
 
     // If user is signed in then redirect back home
+      //this would be where a logged-in user is routed to list-users
     if ($scope.authentication.user) {
       $location.path('/');
     }
+      
+      //**suggest user's current timezone
+    var response = "offset (is it ";
+    var hereNow = new Date();
+    hereNow = -hereNow.getTimezoneOffset()/60;
+    $scope.recommendedTimezoneOffset = response.concat(hereNow + ' where you are?)');
 
     $scope.signup = function (isValid) {
       $scope.error = null;

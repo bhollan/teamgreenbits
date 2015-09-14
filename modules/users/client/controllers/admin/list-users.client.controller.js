@@ -26,7 +26,7 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
     };
     var reloader = $interval  (function(){
         $scope.autoRefresh();
-    }, 10000);
+    }, 60000);
       
       //takes in pre-searched array of users
       //sorts by user.timezoneOffset
