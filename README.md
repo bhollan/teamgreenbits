@@ -1,3 +1,7 @@
+Applying to work at greenbits.com, I was asked to create a timezone tracker app.  I learned MEANjs in a few days to do it and was told "it had too much more than what we asked."  Below is the MEANjs README.  Other than that, this repo is my project.  I can demo it for you if you like.
+
+***************************************
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/meanjs/mean?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
